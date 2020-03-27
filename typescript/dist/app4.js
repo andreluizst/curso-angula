@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const concessionaria_1 = __importDefault(require("./domain/entities/concessionaria"));
+const concessionariaDAO_1 = __importDefault(require("./domain/adapters/concessionariaDAO"));
+const pessoaDao_1 = __importDefault(require("./domain/adapters/pessoaDao"));
+const pessoa_1 = __importDefault(require("./domain/entities/pessoa"));
+const dao_1 = __importDefault(require("./domain/adapters/dao"));
+let daoConcessionaria = new concessionariaDAO_1.default();
+let daoPessoa = new pessoaDao_1.default();
+let concessionaria = new concessionaria_1.default("", []);
+let pessoa = new pessoa_1.default("José", "Ferrari");
+let daoG1 = new dao_1.default();
+let daoG2 = new dao_1.default();
+daoConcessionaria.inserir(concessionaria);
+daoPessoa.inserir(pessoa);
+daoG1.inserir(concessionaria);
+daoG2.inserir(pessoa);
+daoG2.atualizar(pessoa);
