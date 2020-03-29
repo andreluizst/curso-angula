@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Coracao } from './../shared/coracao.model';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tentativas',
@@ -6,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tentativas.component.css']
 })
 export class TentativasComponent implements OnInit {
+  @Input() public tentativas: number
+  public coracoes: Coracao[] = [
+    new Coracao(true),
+    new Coracao(true),
+    new Coracao(true)
+  ]
+
 
   constructor() { }
 
