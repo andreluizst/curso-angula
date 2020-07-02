@@ -1,3 +1,20 @@
 <p>Testando meu primeiro componente</p>
 <app-topo></app-topo>
-<app-painel></app-painel>
+
+<div *ngIf="jogoEmAndamento; else fimDeJogo">
+    <app-painel (onStatusChange)="encerrarJogo($event)"></app-painel>
+</div>
+<ng-template #fimDeJogo>
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col">
+                <h3 *ngIf="resultadoJogo === 'derrota'; else fimDeJogoVitoria" style="color: red;">Você perdeu.</h3>
+                <button class=" btn btn-primary" (click)="reiniciarJogo()">Reiniciar jogo</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #fimDeJogoVitoria>
+    <h3 style="color: green;">Você venceu!!!!!</h3>
+    <button class=" btn btn-primary" (click)="reiniciarJogo()">Reiniciar jogo</button>
+</ng-template>
