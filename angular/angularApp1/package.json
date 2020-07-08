@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "npm-registry-fetch": ">=4.0.5",
     "@angular/animations": "~9.0.7",
     "@angular/common": "~9.0.7",
     "@angular/compiler": "~9.0.7",
